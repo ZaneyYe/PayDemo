@@ -66,7 +66,9 @@ public class Form05_6_2_AppConsume extends HttpServlet {
 		contentData.put("txnTime", txnTime);		 		    //订单发送时间，取系统时间，格式为YYYYMMDDhhmmss，必须取当前时间，否则会报txnTime无效
 		contentData.put("accType", "01");					 	//账号类型 01：银行卡02：存折03：IC卡帐号类型(卡介质)
 		contentData.put("txnAmt", txnAmt);						//交易金额 单位为分，不能带小数点
-		contentData.put("currencyCode", "156");                 //境内商户固定 156 人民币
+		contentData.put("currencyCode", "156");
+
+		//境内商户固定 156 人民币
 
 		// 请求方保留域，
         // 透传字段，查询、通知、对账文件中均会原样出现，如有需要请启用并修改自己希望透传的数据。

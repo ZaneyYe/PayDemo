@@ -9,6 +9,7 @@ import org.apache.commons.httpclient.protocol.Protocol;
 import sdkUtil.LogUtil;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -51,6 +52,7 @@ public class ApacheHttpClient {
 		PostMethod post = new PostMethod(url);
 		HttpClient httpclient = null;
 		try {
+			//x-www-form-urlencoded
 			post.addRequestHeader("Content-Type","application/x-www-form-urlencoded;charset="+encoding);
 			post.addRequestHeader("cache-control", "no-cache");
 			post.addRequestHeader("pragma", "no-cache");
@@ -94,7 +96,7 @@ public class ApacheHttpClient {
 	}
 	
 	
-	public int sendGet(String encoding) {
+	public  int sendGet(String encoding) {
 		GetMethod get = new GetMethod(url);
 		HttpClient httpclient = null;
 		try {
@@ -148,9 +150,14 @@ public class ApacheHttpClient {
 		//String url ="https://gateway.95516.com/jiaofei/config/s/biz/S0_9800_0000";
 		String url ="https://gateway.test.95516.com/gateway/api/backTransReq.do";
 		
-		String url1 = "http://localhost:8080/ACPTest/filterServer.do";
+		String url1 = "http://localhost:8080/getValue.do";
 		ApacheHttpClient ac = new ApacheHttpClient(url1, 30000, 30000);
-		ac.send(null, "UTF-8");
+		Map dataMap = new HashMap();
+		dataMap.put("val","JAGn6kdNEd+2AgE9OZ/tWA==");
+		ac.send(dataMap,"UTF-8");
+		String url2 = "http://localhost:8080/getValue.do?val=JAGn6kdNEd+2AgE9OZ/tWA==";
+		ApacheHttpClient ac2 = new ApacheHttpClient(url2, 30000, 30000);
+		ac2.sendGet("UTF-8");
 		
 		//com.unionpay.acp.sdk.HttpClient hc = new com.unionpay.acp.sdk.HttpClient(url1,30000,30000);
 		

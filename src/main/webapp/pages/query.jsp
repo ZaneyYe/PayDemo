@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  import="java.text.*" import="java.util.*" 
     pageEncoding="UTF-8"%>
 
-<form class="api-form" method="post" action="<%request.getContextPath();%>/ACPSample_AppServer/form05_6_3_Query" target="_blank">
+<form class="api-form" method="post" action="<%request.getContextPath(); %>/form05_6_3_Query" target="_blank">
 <p>
 <label>商户号：</label>
 <input id="merId" type="text" name="merId" placeholder="" value="777290058110048" title="默认商户号仅作为联调测试使用，正式上线还请使用正式申请的商户号" required="required"/>
