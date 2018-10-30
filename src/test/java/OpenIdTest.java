@@ -10,31 +10,31 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 /**
- * Created by yezhangyuan on 2018-04-23.
+ * Created by yezhangyuan on 2018-10-26.
  *
  * @author yezhangyuan
  */
-public class JsonPost {
+public class OpenIdTest {
 
 	public static void main(String[] args) throws IOException {
-		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/backendToken");
+		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/token");
 		CloseableHttpClient client = HttpClients.createDefault();
 		String respContent = null;
 
 		//json方式
 		JSONObject jsonParam = new JSONObject();
 		jsonParam.put("appId", "d0e121723ec0462c95f1c9141a5599d3");
-		jsonParam.put("secret", "62bd2d16a02a47a7b919778cf66e7653");
-		String str = Utils.createNonceStr();
-		jsonParam.put("nonceStr", str);
+		jsonParam.put("backendToken", "k+JZJN4bQleehJsAGDY7gQ==");
+		jsonParam.put("code", "W1oTpVuQSLa3s47MM0SAbA==");
+		jsonParam.put("grantType","authorization_code");
 
 
-		String date = String.valueOf(System.currentTimeMillis()/1000);
-		jsonParam.put("timestamp",date);
-
-		String waitSign = "appId=d0e121723ec0462c95f1c9141a5599d3&nonceStr="+str+"&secret=62bd2d16a02a47a7b919778cf66e7653&timestamp=" + date;
-		String sign = Utils.sha256(waitSign.getBytes());
-		jsonParam.put("signature",sign);
+//		String date = String.valueOf(System.currentTimeMillis()/1000);
+//		jsonParam.put("timestamp",date);
+//
+//		String waitSign = "appId=d0e121723ec0462c95f1c9141a5599d3&nonceStr="+str+"&secret=62bd2d16a02a47a7b919778cf66e7653&timestamp=" + date;
+//		String sign = Utils.sha256(waitSign.getBytes());
+//		jsonParam.put("signature",sign);
 
 		System.out.println(jsonParam.toString());
 
@@ -52,4 +52,7 @@ public class JsonPost {
 		System.out.println(respContent);
 
 	}
+
+
+
 }

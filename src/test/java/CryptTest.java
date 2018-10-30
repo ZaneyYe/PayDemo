@@ -31,8 +31,10 @@ public class CryptTest {
 
 
 	public static void main(String[] args) throws Exception {
-		String r1 = "a8dc3bc7ea9b4abfbc7f8ff7c1adb049a8dc3bc7ea9b4abf";
-		String ori = "JAGn6kdNEd+2AgE9OZ/tWA==";
+//		String r1 = "a8dc3bc7ea9b4abfbc7f8ff7c1adb049a8dc3bc7ea9b4abf";
+		String r1 = "4fbc2c0732a84c23fee901b0b3920ec24fbc2c0732a84c23";
+//		String ori = "JAGn6kdNEd+2AgE9OZ/tWA==";
+		String ori = "fHBQyB7I8WBGNdnhdesEjg==";
 		System.out.println(getDecryptedValue(ori, r1));
 
 		String s1 = "abc";

@@ -29,8 +29,6 @@ public class ShareUserUtil {
 			return "";
 		}
 		byte[] valueByte = value.getBytes("UTF-8");
-//		byte[] sl = encrypt3DES(valueByte, ByteUtils.fromHexString(key));
-//		String result = Base64.encodeBase64String(sl);
 		byte[] sl = des3EncodeECB(ByteUtils.fromHexString(key),valueByte);
 		String result = Base64Utils.encodeToString(sl);
 		return result;
@@ -45,7 +43,6 @@ public class ShareUserUtil {
 	public static void main(String[] args) throws Exception {
 		String desKey = get3Des();
 		System.out.println(desKey);
-		//desKey: d5191604388585156e67cbb3807a4c58d519160438858515
 		System.out.println(getEncryptedValue("wade",desKey));
 		System.out.println(getDecryptedValue("zEQMDyxcDWU=","d5191604388585156e67cbb3807a4c58d519160438858515"));
 	}
@@ -158,7 +155,6 @@ public class ShareUserUtil {
 
 
 	public static String get3Des() {
-//		return Hex.encodeHexString(getKey(System.currentTimeMillis()));
 		return bytesToHex(getKey(System.currentTimeMillis()));
 	}
 
@@ -172,8 +168,6 @@ public class ShareUserUtil {
 			SecretKey secretKey = kgen.generateKey();
 			byte[] key = new byte[24];
 			System.arraycopy(secretKey.getEncoded(), 0, key, 0, 24);
-//			byte[] key = new byte[16];
-//			System.arraycopy(secretKey.getEncoded(), 0, key, 0, 16);
 			return key;
 		} catch (NoSuchAlgorithmException e) {
 			throw new RuntimeException(e);
@@ -182,7 +176,6 @@ public class ShareUserUtil {
 
 	//加密
 	public static byte[] encryptRSA(String pkStr, byte[] input) throws Exception {
-//  		byte[] encodedKey = DatatypeConverter.parseBase64Binary(pkStr);
 		byte[] encodedKey = Base64Utils.decodeFromString(pkStr);
 		KeySpec keySpec = new X509EncodedKeySpec(encodedKey);
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -195,7 +188,6 @@ public class ShareUserUtil {
 
 	//解密
 	public static byte[] decryptRSA(String skStr, byte[] input) throws Exception {
-//		byte[] encodedKey = Base64.decodeBase64(skStr);
 		byte[] encodedKey = Base64Utils.decodeFromString(skStr);
 		KeySpec keySpec = new PKCS8EncodedKeySpec(encodedKey);
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -210,8 +202,6 @@ public class ShareUserUtil {
 	public static final String SIGN_ALGORITHMS = "SHA256WithRSA";
 
 	public static String sign(String value, String privateKey) throws Exception {
-//        byte[] keyBytes = BytesUtil.hexToBytes(privateKey);
-//		byte[] keyBytes = Base64.decodeBase64(privateKey);
 		byte[] keyBytes = Base64Utils.decodeFromString(privateKey);
 		PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
 		KeyFactory keyf = KeyFactory.getInstance("RSA");
@@ -220,24 +210,18 @@ public class ShareUserUtil {
 		signature.initSign(priKey);
 		signature.update(value.getBytes("UTF-8"));
 		byte[] signed = signature.sign();
-//		String result = Base64.encodeBase64String(signed);
 		String result = Base64Utils.encodeToString(signed);
-//        String result = BytesUtil.bytesToHex(signed);
 		return result;
 	}
 
 	public static boolean signValidate(String value, String sign, String publicKey) throws Exception {
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-//        byte[] encodedKey = BytesUtil.hexToBytes(publicKey);
-//		byte[] encodedKey = Base64.decodeBase64(publicKey);
 		byte[] encodedKey = Base64Utils.decodeFromString(publicKey);
 		PublicKey pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(encodedKey));
 		Signature signature = Signature.getInstance(SIGN_ALGORITHMS);
 		signature.initVerify(pubKey);
 		signature.update(value.getBytes());
-//		byte[] bytes = Base64.decodeBase64(sign);
 		byte[] bytes = Base64Utils.decodeFromString(sign);
-//        byte[] bytes = BytesUtil.hexToBytes(sign);
 		return signature.verify(bytes);
 	}
 
