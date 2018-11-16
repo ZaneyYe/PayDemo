@@ -42,14 +42,14 @@ public class Form05_6_2_AppConsume extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+
 		String merId = req.getParameter("merId");
 		String txnAmt = req.getParameter("txnAmt");
 		String orderId = req.getParameter("orderId");
 		String txnTime = req.getParameter("txnTime");
-		
+
 		Map<String, String> contentData = new HashMap<String, String>();
-		
+
 		/***银联全渠道系统，产品参数，除了encoding自行选择外其他不需修改***/
 		contentData.put("version", DemoBase.version);            //版本号 全渠道默认值
 		contentData.put("encoding", DemoBase.encoding);     //字符集编码 可以使用UTF-8,GBK两种方式

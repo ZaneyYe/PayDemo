@@ -23,8 +23,8 @@ public class JsonPost {
 
 		//json方式
 		JSONObject jsonParam = new JSONObject();
-		jsonParam.put("appId", "d0e121723ec0462c95f1c9141a5599d3");
-		jsonParam.put("secret", "62bd2d16a02a47a7b919778cf66e7653");
+		jsonParam.put("appId", "98528189d94d40a6a96c8a30ba361752");
+		jsonParam.put("secret", "eb86fa83dfb94e2faa0ce65faeceb7df");
 		String str = Utils.createNonceStr();
 		jsonParam.put("nonceStr", str);
 
@@ -32,7 +32,7 @@ public class JsonPost {
 		String date = String.valueOf(System.currentTimeMillis()/1000);
 		jsonParam.put("timestamp",date);
 
-		String waitSign = "appId=d0e121723ec0462c95f1c9141a5599d3&nonceStr="+str+"&secret=62bd2d16a02a47a7b919778cf66e7653&timestamp=" + date;
+		String waitSign = "appId=98528189d94d40a6a96c8a30ba361752&nonceStr="+str+"&secret=eb86fa83dfb94e2faa0ce65faeceb7df&timestamp=" + date;
 		String sign = Utils.sha256(waitSign.getBytes());
 		jsonParam.put("signature",sign);
 

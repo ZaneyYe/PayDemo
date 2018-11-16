@@ -1,5 +1,6 @@
-import org.bouncycastle.pqc.math.linearalgebra.ByteUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.bouncycastle.util.encoders.Base64;
+import org.springframework.util.Base64Utils;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -16,9 +17,8 @@ public class CryptTest {
 		if (null == value || "".equals(value)) {
 			return "";
 		}
-		// byte[] valueByte = BytesUtil.hexToBytes(value);
 		byte[] valueByte = Base64.decode(value);
-		byte[] sl = decrypt3DES(valueByte, ByteUtils.fromHexString(key));
+		byte[] sl = decrypt3DES(valueByte, hexToBytes(key));
 		String result = new String(sl);
 		return result;
 	}
@@ -29,43 +29,50 @@ public class CryptTest {
 		return c.doFinal(input);
 	}
 
+	public static byte[] encode3Des(byte[] input, byte[] key) throws Exception {
+		Cipher c = Cipher.getInstance("DESede/ECB/PKCS5Padding");
+		c.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key, "DESede"));
+		return c.doFinal(input);
+	}
+
+	public static String encodeKey(String value,String key) throws Exception {
+		if(StringUtils.isBlank(value)){
+			return "";
+		}
+		byte[] s1 = encode3Des(value.getBytes(),hexToBytes(key));
+		String res = Base64Utils.encodeToString(s1);
+		return res;
+	}
+
+
+	public static byte[] hexToBytes(String hex) {
+		return hexToBytes(hex.toCharArray());
+	}
+
+	public static byte[] hexToBytes(char[] hex) {
+		int length = hex.length / 2;
+		byte[] raw = new byte[length];
+		for (int i = 0; i < length; i++) {
+			int high = Character.digit(hex[i * 2], 16);
+			int low = Character.digit(hex[i * 2 + 1], 16);
+			int value = (high << 4) | low;
+			if (value > 127) {
+				value -= 256;
+			}
+			raw[i] = (byte) value;
+		}
+		return raw;
+	}
+
 
 	public static void main(String[] args) throws Exception {
-//		String r1 = "a8dc3bc7ea9b4abfbc7f8ff7c1adb049a8dc3bc7ea9b4abf";
-		String r1 = "4fbc2c0732a84c23fee901b0b3920ec24fbc2c0732a84c23";
-//		String ori = "JAGn6kdNEd+2AgE9OZ/tWA==";
-		String ori = "fHBQyB7I8WBGNdnhdesEjg==";
-		System.out.println(getDecryptedValue(ori, r1));
+//		String value = encodeKey("abcABDddd123456", "23f297855110975e8a3ece3dab8f19d323f297855110975e");
+		String key = getDecryptedValue("n8vxLUGCJt+RXf3kWRnmag==", "23f297855110975e8a3ece3dab8f19d323f297855110975e");
 
-		String s1 = "abc";
-		String s2 = "a" + "b" + "c";
-		String a = "a";
-		String s3 = a + "b" + "c";
-		System.out.println(s1 == s2);
-//		System.out.println(s1 == s3);
-//
-//		StringBuilder sb = new StringBuilder();
-//		sb.append("a").append("b").append("c");
-//		System.out.println(s1 == sb.toString());
-//
-//		StringBuffer sb2 = new StringBuffer();
-//		sb2.append("a").append("b").append("c");
-//		System.out.println(s1 == sb2.toString());
-
-
-		String s4 = " abc";
-		System.out.println(s1 == s4);
-
-		String c1 = "中国";
-		String c2 = "中国";
-		String c3 = new String("中国");
-		System.out.println(c1 == c2);  //true
-		System.out.println(c1 == c3); //false
-		System.out.println(c1 == c3.intern()); //true
-
-		System.out.println(System.currentTimeMillis()/1000);
-
+//		String v1 = getDecryptedValue("9vKtgD7Bqic=","")
+		System.out.println(key);
 	}
+
 
 
 

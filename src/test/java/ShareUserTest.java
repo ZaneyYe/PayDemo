@@ -18,12 +18,12 @@ public class ShareUserTest {
 	private static String privateKey = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIApSXeqcT3pKCBDKGpKqf+ByvrSdwMzDnmUb+6eVsms/GpbIhCHrGr+/fPRuq/COZuEsiNmkjusEeNgJCEoga/AzQ3xDklx6VZ7UDMfOVtK4KRsWHSMfYCtcXm2btppxcM6dOFwimtt1vPptgYfxsbdmtrxJw0ziccj0jAV4wpPAgMBAAECgYAHh+WMRZSv6aJ0+t1GGasRm4Pc5z8dDgP8uu8021MIOMUATuiahg5onyE3EYzhxQzziYGaOO3A2eSXMtAMrr+oCdwN7gqwjShgGkB/2cDvDnJ0wFHntvCYXjp13QEFJ8CO5fkYWLVxFtJ6VrdLUktUvhR+Fw4JLuTho/11lYdhGQJBAMFdi3RD2XEyoAoH4mkZ5siPfyW6gu5qkBBroAb3WJaAYxL0bwRmFYI+Q5YAmjYZwJlnm8AC3bMJREpFslP0NOUCQQCprNCXNQal6XuzyQGngy6eAOVGLKp/inGWyRW/wuFu6TJAGTAonbwTpNfeEfQ3aOJGgt/DHWOfvdVJ9BbraqMjAkEArX/2BRhsHrnCB74TVSK8hPDcsUms+af8I/+t0xJVFpWUUAmrI1NFsVuU4R8hP7HTstHYWm0359FEyS/IVrQkUQJAXaWG3t2iVLHf12OKaTTq5sPhxvBiDdCQTsOfIF5j474LQPtl7BTauBDUH7nTCz31HSugamTvFjxE2vNALyCE9wJAEE6G0W9IZDm6w+5nbiZ2mAhd0VBfMI2apa09/yMQGcqt2974bw/42chPoO9Vcwua+x3LsQ1stxl3+6jADQp7Fw==";
 
 
-	private static String unpublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlCK4TIi4XUijd2bEseATK1FRcypNwaHtXKU9ouV6lzYpxMy1UA1VUTMCfato31VV0Pj+LDFHTm62it05vIKbJ+at4LUE6BjskL5VTnxZXAyGKC4tvWFuUrMJYh2z57AnMtk697OYxJAxD9/il0mCRs2ftqvCM1VM3BlyeCurKJ2ZfGXBD9WujCOWIzbSFrZARkflJ/ZmOfoP7ks2Pi1wmWNHy2Hnc+qx/ohYIf8/t7rfC93nEpTdhO+Nbd9I8otwQz8gpIH5IOEq/8QgfKM86tMIiOdTDiNE+7Pm+7ZVJdZ98RuzcSeyDB42B7kbS8sAoGEyn4WlnPRKSyeIh2+JYQIDAQAB";
+//	private static String unpublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlCK4TIi4XUijd2bEseATK1FRcypNwaHtXKU9ouV6lzYpxMy1UA1VUTMCfato31VV0Pj+LDFHTm62it05vIKbJ+at4LUE6BjskL5VTnxZXAyGKC4tvWFuUrMJYh2z57AnMtk697OYxJAxD9/il0mCRs2ftqvCM1VM3BlyeCurKJ2ZfGXBD9WujCOWIzbSFrZARkflJ/ZmOfoP7ks2Pi1wmWNHy2Hnc+qx/ohYIf8/t7rfC93nEpTdhO+Nbd9I8otwQz8gpIH5IOEq/8QgfKM86tMIiOdTDiNE+7Pm+7ZVJdZ98RuzcSeyDB42B7kbS8sAoGEyn4WlnPRKSyeIh2+JYQIDAQAB";
 
-//	private static String unpublicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCLiTzEpxu73u9UlY+BS+jfoX0py7nw2Rd8ynk77syp00rmPRQ2pCYWR2n6UIKid/NYMZhsPCs9thDOXtvXhAQoHlRfNE5nSs3eBY6SI5LCkxq2wFfTOMlxICsbECnvsjawb3g0PVUR6QHDaNXRMb2Yux1tZXjirzq3dlNbjoPXEQIDAQAB";
+	private static String unpublicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCLiTzEpxu73u9UlY+BS+jfoX0py7nw2Rd8ynk77syp00rmPRQ2pCYWR2n6UIKid/NYMZhsPCs9thDOXtvXhAQoHlRfNE5nSs3eBY6SI5LCkxq2wFfTOMlxICsbECnvsjawb3g0PVUR6QHDaNXRMb2Yux1tZXjirzq3dlNbjoPXEQIDAQAB";
 
-	private static String findUserUrl = "https://wallet.95516.com/app/access/bank/findUser";
-//	private static String findUserUrl = "http://101.231.204.80:8086/app/access/bank/findUser";
+//	private static String findUserUrl = "https://wallet.95516.com/app/access/bank/findUser";
+	private static String findUserUrl = "http://101.231.204.80:8086/app/access/bank/findUser";
 //
 	private static String bindUserUrl = "https://wallet.95516.com/app/access/bank/bindUser";
 
@@ -32,8 +32,8 @@ public class ShareUserTest {
 	private static ObjectMapper objectMapper = new ObjectMapper();
 
 	public static void main(String[] args) throws Exception {
-		bindUserSend();
-//		findUserSend();
+//		bindUserSend();
+		findUserSend();
 //		String sign = sign();
 //		System.out.println(sign);
 	}
@@ -76,8 +76,8 @@ public class ShareUserTest {
 //		map.put("nonceStr",ShareUserUtil.createNonceStr(16));
 		map.put("nonceStr","78TaA2xIMAUDiotK");
 		map.put("chnl","1");
-//		map.put("timestamp",("" + System.currentTimeMillis()/1000));
-		map.put("timestamp",("" + 1583931153));
+		map.put("timestamp",("" + System.currentTimeMillis()/1000));
+//		map.put("timestamp",("" + 1583931153));
 
 		String waitForSign = MyHttpClient.coverMap2String(map);
 		System.out.println("待签名：" + waitForSign);

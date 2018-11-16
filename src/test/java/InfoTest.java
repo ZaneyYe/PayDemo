@@ -14,19 +14,19 @@ import java.io.IOException;
  *
  * @author yezhangyuan
  */
-public class OpenIdTest {
+public class InfoTest {
 
 	public static void main(String[] args) throws IOException {
-		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/token");
+		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/user.mobile");
 		CloseableHttpClient client = HttpClients.createDefault();
 		String respContent = null;
 
 		//json方式
 		JSONObject jsonParam = new JSONObject();
 		jsonParam.put("appId", "98528189d94d40a6a96c8a30ba361752");
-		jsonParam.put("backendToken", "pCDvuqThTtKw14UMOkgTSQ==");
-		jsonParam.put("code", "DmX85RdKTDmcy4k/008tWw==");
-		jsonParam.put("grantType","authorization_code");
+		jsonParam.put("accessToken", "9pEOPx/iooWLGF2Q+j8ce2NGfR2aWVyesNPnVucPcEf2c2XKHDK/vzlFVptPRaCs/nVrAbHCR67z8GzDdLaZU6Q9b2O9P7q6AWZSRz028Lc=");
+		jsonParam.put("openId", "87bsHfUjzYUQulX1ZpBNad9nImJ+ItQqwKJc6+AcS7oagapGeo2pqEkjGOJuFGK8");
+		jsonParam.put("backendToken","pCDvuqThTtKw14UMOkgTSQ==");
 
 
 //		String date = String.valueOf(System.currentTimeMillis()/1000);
