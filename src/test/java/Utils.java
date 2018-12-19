@@ -54,10 +54,10 @@ public class Utils
 //		String ss = "appId=6f5e05407c7d4ad88e28b3cf32352207&frontToken=Wo/4vYjITxmh35BzWdGg4w==&nonceStr=fQ2IJsnJsGA4vpwn&timestamp=1535446600&url=https://upw-dev.axinfu.com/fee/feeInfoSure";
 ////		String s3 = "appId=a5949221470c4059b9b0b45a90c81527&frontToken=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg&nonceStr=Wm3WZYTPz0wzccnW&"+
 ////				"timestamp=1414587457&url=http://mobile.xxx.com?params=value";
-////		String ss = "appId=a348810e79ac415e9ab34a566a035a87&frontToken=PVcKL3+gR66r5zQk0ERecQ==&nonceStr=tXix87tOU8F340wa&timestamp=1533281102&url=http://cashvip96.natapp1.cc/UnifiedPayWebFront/consume/consumeAppService.do?appid=303110100000281&sign=0014B369A8E7C6A881BEF666D615F27D&amount=1&order_no=lytest201808030102345&timeout=10m";
-//
-//
-//		System.out.println(sha256(ss.getBytes()));
+		String ss = "appId=7c31a610935f428daca3c81283dd4ff3&frontToken=8pkJdmorTACFgtPR0f+7JA==&nonceStr=YGj17zhQStmZQR9l&timestamp=1542877308&url=http://liuyanma.gooeshop.com/jssdk/sample.phpe7d564429e23e83f6cae81a5df47328840228ded6e4f253c4dc8a8f225d90140";
+
+		System.out.println(sha256(ss.getBytes()));
+
 ////		System.out.println(sha256(s3.getBytes()));
 //		ObjectMapper objectMapper = new ObjectMapper();
 //		try {

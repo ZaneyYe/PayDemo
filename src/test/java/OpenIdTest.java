@@ -23,9 +23,9 @@ public class OpenIdTest {
 
 		//json方式
 		JSONObject jsonParam = new JSONObject();
-		jsonParam.put("appId", "98528189d94d40a6a96c8a30ba361752");
-		jsonParam.put("backendToken", "pCDvuqThTtKw14UMOkgTSQ==");
-		jsonParam.put("code", "DmX85RdKTDmcy4k/008tWw==");
+		jsonParam.put("appId", "d43714e0246a435e87037f80495d2c6d");
+		jsonParam.put("backendToken", "1+Zs+QcvRm6K91CGXLZg/g==");
+		jsonParam.put("code", "QOV684w2RASei3MS+dfyiw==");
 		jsonParam.put("grantType","authorization_code");
 
 

@@ -20,10 +20,10 @@ public class ImgTestHttp {
 
 	public static void main(String[] args) throws IOException {
 		Map<String,String> map = new HashMap<>();
-		map.put("appId","d0e121723ec0462c95f1c9141a5599d3");
-		map.put("openId","taeDjyuQzIAXTKyytUn0c72832yy6l/raiT34oi4Ow7fILoqKSvUgdw6CbWpmbMw");//s
-		map.put("backendToken","k+JZJN4bQleehJsAGDY7gQ==");//s
-		map.put("accessToken","SK9fGYCKzpvaNjhErPE7mKisBfk3CZ0FAA742LURrKFzwTJO/eli4Mewo9tn2C28SxJ3Zh7JPyuZfgSKtn9h05BuFenE6DKy");//s
+		map.put("appId","d43714e0246a435e87037f80495d2c6d");
+		map.put("openId","2X/rjxxiADyrDxLV4jm43trfwlvlG6gvsFKWdLWqsvpqUxB90dsWjSExndldBabC");//s
+		map.put("backendToken","1+Zs+QcvRm6K91CGXLZg/g==");//s
+		map.put("accessToken","L+G+cbc9N7Hmnh8dvwDN27+1ZKUQXWm5gu+0nlhj5Q2xQqBOEdNtfoGLLaqXQRxNyRWXH+bZ43mIxAlUuLgUEDf+evbaIxUa");//s
 
 		String imgUrl = "https://open.95516.com/open/access/1.0/face.image";
 		String videoUrl = "https://open.95516.com/open/access/1.0/face.video";
@@ -32,7 +32,7 @@ public class ImgTestHttp {
 		System.out.println(base64Img);
 		Image image = ImgUtils.getImage(Base64Utils.decodeFromString(base64Img));
 
-		ImageIO.write((RenderedImage) image,"png",new File("E://1028.png"));
+		ImageIO.write((RenderedImage) image,"png",new File("E://1219.png"));
 
 	}
 

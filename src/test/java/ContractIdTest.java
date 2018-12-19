@@ -10,32 +10,28 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 /**
- * Created by yezhangyuan on 2018-04-23.
+ * Created by yezhangyuan on 2018-10-26.
  *
  * @author yezhangyuan
  */
-public class JsonPost {
+public class ContractIdTest {
 
 	public static void main(String[] args) throws IOException {
-		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/backendToken");
+		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/contract.apply");
 		CloseableHttpClient client = HttpClients.createDefault();
 		String respContent = null;
 
 		//json方式
 		JSONObject jsonParam = new JSONObject();
-		jsonParam.put("appId", "d43714e0246a435e87037f80495d2c6d");
-//		jsonParam.put("secret", "2d6f9089895f41bdbd3e5a8fd6863f0e");
-		jsonParam.put("secret", "b3b15e5dee9b479b9011b43ca47f753e");
-		String str = Utils.createNonceStr();
-		jsonParam.put("nonceStr", str);
+		jsonParam.put("appId", "a5949221470c4059b9b0b45a90c81527");
+		jsonParam.put("accessToken", "+aRsCfRAlAu3J9iJgyBFg+uuIVB7MbVP8PoxbFG1O5a+MgVqUQD9YPmvzBozwcb0pXMVFwqT2erkJm3twbnANlxgtZvuziMVN+q5XERbBiM=");
+		jsonParam.put("openId", "IR09BvvPAzxk8T+aHkdLpC68T7JTr4/7HNhR5LXrBztQVGMcoREG/u0orGars25t");
+		jsonParam.put("backendToken","VJ5G6bbjRha1N6+JLODuyQ==");
+		jsonParam.put("plan_id","1d7a370d886f4133a2f366350116b2d0");
+		jsonParam.put("contract_code","201811223344");
+//		jsonParam.put("moblie","1851");
+//		jsonParam.put("certId","");
 
-
-		String date = String.valueOf(System.currentTimeMillis()/1000);
-		jsonParam.put("timestamp",date);
-
-		String waitSign = "appId=d43714e0246a435e87037f80495d2c6d&nonceStr="+str+"&secret=b3b15e5dee9b479b9011b43ca47f753e&timestamp=" + date;
-		String sign = Utils.sha256(waitSign.getBytes());
-		jsonParam.put("signature",sign);
 
 		System.out.println(jsonParam.toString());
 
@@ -53,4 +49,7 @@ public class JsonPost {
 		System.out.println(respContent);
 
 	}
+
+
+
 }

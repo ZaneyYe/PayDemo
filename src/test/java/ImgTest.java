@@ -20,7 +20,7 @@ public class ImgTest {
 
 		Image image = ImgUtils.getImage(Base64Utils.decodeFromString(base64Img));
 
-		ImageIO.write((RenderedImage) image,"png",new File("E://1.png"));
+		ImageIO.write((RenderedImage) image,"png",new File("E://1.jpg"));
 
 	}
 }
