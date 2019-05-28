@@ -33,7 +33,7 @@ public class ImgUtils {
 			InputStream isPhoto = new ByteArrayInputStream(bytes);
 			img = ImageIO. read(isPhoto);
 		} catch (IOException e) {
-// TODO Auto-generated catch block
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return img;

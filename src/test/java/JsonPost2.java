@@ -23,11 +23,11 @@ public class JsonPost2 {
 
 		//json方式
 		JSONObject jsonParam = new JSONObject();
-		jsonParam.put("appId", "973db1f168824087bad7a41336c34195");
-		jsonParam.put("openId", "0Fg54bz8v4MgAQZJ/zY2E7wRF7GWdQTjp5VUMN1klWqGhjrkqlBM7FVu26ZQW5EA");
+		jsonParam.put("appId", "d43714e0246a435e87037f80495d2c6d");
+		jsonParam.put("openId", "2X/rjxxiADyrDxLV4jm43trfwlvlG6gvsFKWdLWqsvpqUxB90dsWjSExndldBabC");
 //		String str = Utils.createNonceStr();
-		jsonParam.put("accessToken", "QAKAuWQneOmjuQB6rHPrLAuokAiwxW66ZPP+B43Q+2NjTdQwEXglEUVdxoD7tMMejeZT0oyH784XeEYVioBXL4j+dj9hvJLyQwHw2MwzaPk=");
-		jsonParam.put("backendToken","1NIaDMVyQLapfujl6I8lkA==");
+		jsonParam.put("accessToken", "C2X0OuQbQJeFC/H2QrIPXrRo2bIRo6C6Sm2VNekNdAyo8kjLcipv71BwvwO05JKAovVL6iGO1O/paEdn/XJMYN48qdlCzjMVjT4sbvW61V0=");
+		jsonParam.put("backendToken","T5jkuW4DRPyR6wjYccKvKQ==");
 		jsonParam.put("cardTp","00");
 		jsonParam.put("needPay","1");
 		jsonParam.put("needSameName","0");

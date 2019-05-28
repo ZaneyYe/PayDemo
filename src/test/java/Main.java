@@ -5,7 +5,7 @@
  */
 public class Main {
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws Exception {
 //
 //		URLDecoder  decoder = new URLDecoder();
 //		long time3 = 1527393533000l + 5000 * 1000;
@@ -19,7 +19,26 @@ public class Main {
 //		String s = client4.post("https://coupon.yuelai.club/unionpaycallback.do", map);
 //		System.out.println(s);
 
-		System.out.println("gOUHCNjESCypYiB6TRCqoQ==".length());
+//		System.out.println("gOUHCNjESCypYiB6TRCqoQ==".length());
+//		String str = "pAT+dGVP9zWcqhsplVfCvmY3vKjXYOffwuuWgloL/0czSxlvDbdmzd0ok0v8GQ5B5nTJzuUzJ5Dh1nBZpscIdR8VaJSUhjg6zW/3rBtzjgVqAokde6/dVxTVGG6C2kMS7BJnnLoz6EeG4W3JlFZ4L8q3Gno8kRFHHB7jsQDiY9w8lq82Ef/Zrg/A7cPskoc31D8QwlniAXWdMpmrXEAodqG1vxTvwGpRIlbxSumrhfB6dMytuanTT9GE5xTdPe0xrjdoo4F1NEQ+SiZwVmI4Vl3p0XyJCei4+J1WZrE7Vss86Q+VxKbkk0/68XaR4LIPDMvMlmxUW/Q9SQ/1hlVYdw==";
+//		byte[] bytes = Base64Utils.decodeFromString(str);
+//		String toHex = Utils.bytesToHex(bytes);
+//		System.out.println(toHex.toUpperCase());
+
+
+//		String str2 = "Cbv1Pv4sLL5l8TvbY8brdXd4801ufJTwpQQppMK9cQ7Ls+DNpgZlyWrbZxerkMLZLL+ugyBnpCKAffIryuCEVYnoU/z7qHvS15gcvAuMZgILiuOOCD0zykQ/esLr1bzdhJhkXWqm9QvoXrxEMrXX5zjv9Mldq0NtBNPZ0Igc8/M=";
+//		System.out.println(str2.length());
+//		byte[] bss = Base64Utils.decodeFromString(str2);
+//		System.out.println(bss.length);
+
+
+		String des = ShareUserUtil.get3Des();
+		String str = "china";
+		System.out.println(str.getBytes().length);
+		String encryptedValue = ShareUserUtil.getEncryptedValue(str, des);
+		System.out.println(encryptedValue.getBytes().length);
+
+
 	}
 
 }

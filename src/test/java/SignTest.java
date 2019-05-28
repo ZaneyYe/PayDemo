@@ -1,9 +1,3 @@
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import sdkUtil.LogUtil;
 import sdkUtil.SDKConstants;
@@ -26,12 +20,13 @@ public class SignTest {
 		String encoding = "UTF-8";
 		Map<String, String> data = new HashMap<>();
 
-		data.put("appId", "e4f37cbba4434895802bd6086ada0e63");
-		data.put("nonceStr", "yQw5U24S");
+		data.put("appId", "69829a1e84df4da3bdcebd40530afac7");
+		data.put("nonceStr", "23449726802c4461aa68db82aa110d57");
 		long time = System.currentTimeMillis();
 		System.out.println(time);
-		data.put("timestamp",time+"");
-		data.put("secret","ffbfddb6286f4768aeda01833105ac48");
+		data.put("timestamp",1545362074+"");
+		data.put("url","https://hljslh5.jingmon.com/");
+		data.put("frontToken","ousk7Zm/QnixSK4JeTi1vA==");
 		String waitForSign = coverMap2String(data);
 		LogUtil.writeLog("待签名请求报文串:[" + waitForSign + "]");
 
@@ -42,27 +37,27 @@ public class SignTest {
 		LogUtil.writeLog("签名串:[" + strAfterSha256 + "]");
 		ObjectMapper objectMapper = new ObjectMapper();
 
-		String data2 = objectMapper.writeValueAsString(data);
-
-		try {
-			HttpPost post = new HttpPost("https://open.95516.com/open/access/1.0/frontToken");
-			// 接收参数json列表
-			StringEntity entity = new StringEntity(data2,"utf-8");//解决中文乱码问题
-			entity.setContentEncoding("UTF-8");
-			entity.setContentType("application/json");
-			post.setEntity(entity);
-
-			CloseableHttpClient httpclient = HttpClients.createDefault();
-			CloseableHttpResponse result = httpclient.execute(post);
-
-//			 请求结束，返回结果
-			String resData = EntityUtils.toString(result.getEntity());
-
-			System.out.println(resData);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		String data2 = objectMapper.writeValueAsString(data);
+//
+//		try {
+//			HttpPost post = new HttpPost("https://open.95516.com/open/access/1.0/frontToken");
+//			// 接收参数json列表
+//			StringEntity entity = new StringEntity(data2,"utf-8");//解决中文乱码问题
+//			entity.setContentEncoding("UTF-8");
+//			entity.setContentType("application/json");
+//			post.setEntity(entity);
+//
+//			CloseableHttpClient httpclient = HttpClients.createDefault();
+//			CloseableHttpResponse result = httpclient.execute(post);
+//
+////			 请求结束，返回结果
+//			String resData = EntityUtils.toString(result.getEntity());
+//
+//			System.out.println(resData);
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 	}
 

@@ -29,6 +29,7 @@ public class CryptTest {
 		return c.doFinal(input);
 	}
 
+	//3DES加密
 	public static byte[] encode3Des(byte[] input, byte[] key) throws Exception {
 		Cipher c = Cipher.getInstance("DESede/ECB/PKCS5Padding");
 		c.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key, "DESede"));
@@ -67,7 +68,7 @@ public class CryptTest {
 
 	public static void main(String[] args) throws Exception {
 //		String value = encodeKey("abcABDddd123456", "23f297855110975e8a3ece3dab8f19d323f297855110975e");
-		String key = getDecryptedValue("n8vxLUGCJt+RXf3kWRnmag==", "23f297855110975e8a3ece3dab8f19d323f297855110975e");
+		String key = getDecryptedValue("cRTBE94FqsltSOdow3xMwQOi19HZTA2A", "54ec5768768032cead37ce8ff713a84554ec5768768032ce");
 
 //		String v1 = getDecryptedValue("9vKtgD7Bqic=","")
 		System.out.println(key);

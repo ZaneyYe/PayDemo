@@ -54,6 +54,10 @@ public class GenRSA {
 			System.out.println(getPrivateKey(map));
 			System.out.println("公钥");
 			System.out.println(getPublicKey(map));
+
+//			String rsa = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCLiTzEpxu73u9UlY+BS+jfoX0py7nw2Rd8ynk77syp00rmPRQ2pCYWR2n6UIKid/NYMZhsPCs9thDOXtvXhAQoHlRfNE5nSs3eBY6SI5LCkxq2wFfTOMlxICsbECnvsjawb3g0PVUR6QHDaNXRMb2Yux1tZXjirzq3dlNbjoPXEQIDAQAB";
+
+
 		}
 
 

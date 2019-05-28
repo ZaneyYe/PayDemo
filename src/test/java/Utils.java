@@ -7,7 +7,8 @@ import java.util.Random;
  * @author yezhangyuan
  */
 public class Utils
-	{
+{
+
 	public static String sha256(byte[] data) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -48,27 +49,31 @@ public class Utils
 		}
 
 	public static void main(String[] args){
-//		String str2 = "appId=2ad1a3275c4c413f8d603e4be7886785&frontToken=e3bUKdGhQZaPpy1mYHzpSw==&nonceStr=MjZRp8jFOL5E72Oj&timestamp=1532328524&url=https://coupon.yuelai.club";
-//		String ss = "appId=80af75c1ea5748408db9e922bfb748db&nonceStr=ASWQWSQWQXQqwersd&secret=1ffb2075eefc4530a03bf1d04285d027&timestamp=1535356100";
-
-//		String ss = "appId=6f5e05407c7d4ad88e28b3cf32352207&frontToken=Wo/4vYjITxmh35BzWdGg4w==&nonceStr=fQ2IJsnJsGA4vpwn&timestamp=1535446600&url=https://upw-dev.axinfu.com/fee/feeInfoSure";
-////		String s3 = "appId=a5949221470c4059b9b0b45a90c81527&frontToken=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg&nonceStr=Wm3WZYTPz0wzccnW&"+
-////				"timestamp=1414587457&url=http://mobile.xxx.com?params=value";
-		String ss = "appId=7c31a610935f428daca3c81283dd4ff3&frontToken=8pkJdmorTACFgtPR0f+7JA==&nonceStr=YGj17zhQStmZQR9l&timestamp=1542877308&url=http://liuyanma.gooeshop.com/jssdk/sample.phpe7d564429e23e83f6cae81a5df47328840228ded6e4f253c4dc8a8f225d90140";
-
+////		String str2 = "appId=2ad1a3275c4c413f8d603e4be7886785&frontToken=e3bUKdGhQZaPpy1mYHzpSw==&nonceStr=MjZRp8jFOL5E72Oj&timestamp=1532328524&url=https://coupon.yuelai.club";
+////		String ss = "appId=80af75c1ea5748408db9e922bfb748db&nonceStr=ASWQWSQWQXQqwersd&secret=1ffb2075eefc4530a03bf1d04285d027&timestamp=1535356100";
+//
+////		String ss = "appId=6f5e05407c7d4ad88e28b3cf32352207&frontToken=Wo/4vYjITxmh35BzWdGg4w==&nonceStr=fQ2IJsnJsGA4vpwn&timestamp=1535446600&url=https://upw-dev.axinfu.com/fee/feeInfoSure";
+//////		String s3 = "appId=a5949221470c4059b9b0b45a90c81527&frontToken=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg&nonceStr=Wm3WZYTPz0wzccnW&"+
+//////				"timestamp=1414587457&url=http://mobile.xxx.com?params=value";
+		String ss = "appId=7c23a9cc21a043028c6cc945dcf01492&frontToken=J/T6IjYyQli3lkYUxR+6IA==&nonceStr=H45DIbcVLmDSv4oT&timestamp=1550510149&url=https://unionpay.ylzcf.com/finance/singNetCreditCeShi?code=mxQwTLs/SheXm8YttdFE3g==&state=up";
 		System.out.println(sha256(ss.getBytes()));
+//		System.out.println(sha256("5258".getBytes()));
+		System.out.println(System.currentTimeMillis()/1000);
+		String timestamp = Long.toString(System.currentTimeMillis()).substring(0,10);
+		System.out.println(timestamp);
 
-////		System.out.println(sha256(s3.getBytes()));
-//		ObjectMapper objectMapper = new ObjectMapper();
-//		try {
-//			ShareUserResponse response = objectMapper.readValue("{\"resp\":\"00\",\"msg\":\"success\",\"params\":{\"sn\":\"2a04530cf672434f92661715533b226a\"}}", ShareUserResponse.class);
-//			System.out.println(response.getParams().getSn());
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		System.out.println(createNonceStr());
-
-
+//
+//////		System.out.println(sha256(s3.getBytes()));
+////		ObjectMapper objectMapper = new ObjectMapper();
+////		try {
+////			ShareUserResponse response = objectMapper.readValue("{\"resp\":\"00\",\"msg\":\"success\",\"params\":{\"sn\":\"2a04530cf672434f92661715533b226a\"}}", ShareUserResponse.class);
+////			System.out.println(response.getParams().getSn());
+////		} catch (IOException e) {
+////			e.printStackTrace();
+////		}
+//		System.out.println(createNonceStr());
+//
+//
 	}
 
 

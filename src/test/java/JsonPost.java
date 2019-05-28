@@ -17,20 +17,22 @@ import java.io.IOException;
 public class JsonPost {
 
 	public static void main(String[] args) throws IOException {
-		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/backendToken");
+		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/frontToken");
+//		HttpPost httpPost = new HttpPost("http://202.101.25.188:10533/open/access/1.0/backendToken");
 		CloseableHttpClient client = HttpClients.createDefault();
 		String respContent = null;
 
 		//json方式
 		JSONObject jsonParam = new JSONObject();
 		jsonParam.put("appId", "d43714e0246a435e87037f80495d2c6d");
-//		jsonParam.put("secret", "2d6f9089895f41bdbd3e5a8fd6863f0e");
+//		jsonParam.put("appId", "04494ba0bb4c4de58d6596f620a859f7");
 		jsonParam.put("secret", "b3b15e5dee9b479b9011b43ca47f753e");
+//		jsonParam.put("secret", "924c2ec4ec614353bf02e6674e7eafce");
 		String str = Utils.createNonceStr();
 		jsonParam.put("nonceStr", str);
 
-
-		String date = String.valueOf(System.currentTimeMillis()/1000);
+        long datel = System.currentTimeMillis()/1000;
+		String date = String.valueOf(datel);
 		jsonParam.put("timestamp",date);
 
 		String waitSign = "appId=d43714e0246a435e87037f80495d2c6d&nonceStr="+str+"&secret=b3b15e5dee9b479b9011b43ca47f753e&timestamp=" + date;
