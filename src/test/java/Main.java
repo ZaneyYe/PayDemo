@@ -1,3 +1,5 @@
+import org.springframework.util.Base64Utils;
+
 /**
  * Created by yezhangyuan on 2018-05-11.
  *
@@ -32,12 +34,19 @@ public class Main {
 //		System.out.println(bss.length);
 
 
-		String des = ShareUserUtil.get3Des();
-		String str = "china";
-		System.out.println(str.getBytes().length);
-		String encryptedValue = ShareUserUtil.getEncryptedValue(str, des);
-		System.out.println(encryptedValue.getBytes().length);
+//		String des = ShareUserUtil.get3Des();
+//		String str = "china";
+//		System.out.println(str.getBytes().length);
+//		String encryptedValue = ShareUserUtil.getEncryptedValue(str, des);
+//		System.out.println(encryptedValue.getBytes().length);
 
+
+//		String url = URLEncoder.encode("http://101.90.11.90:9090?city=人脸识别");
+//		String uurl = URLEncoder.encode("http://101.90.11.90:9090?city=人脸识别", "utf-8");
+//		System.out.println(url);
+//		System.out.println(uurl);
+		byte[] bytes = Base64Utils.decodeFromString("dG9rZW5fdHDH_rXAyKjP3s67zby87LLpyqew3A");
+		System.out.println(new String(bytes));
 
 	}
 

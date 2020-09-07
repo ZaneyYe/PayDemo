@@ -127,6 +127,11 @@
             <artifactId>json</artifactId>
             <version>20160810</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.3</version>
+        </dependency>
 
 
 
@@ -144,6 +149,12 @@
             <version>${jsp.api.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!--<dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.11</version>
+        </dependency>-->
 
         <dependency>
             <groupId>codec</groupId>
@@ -166,7 +177,13 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/bcprov-jdk15on-1.54.jar</systemPath>
         </dependency>
-
+        <dependency>
+            <groupId>upapi-client</groupId>
+            <artifactId>upapi-client</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/upapi-client.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>

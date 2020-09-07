@@ -47,7 +47,7 @@ public class DemoBase {
 	 * @return
 	 */
     public static String genHtmlResult(Map<String, String> data){
-
+//    	URLEncoder.encode()
     	TreeMap<String, String> tree = new TreeMap<String, String>();
 		Iterator<Entry<String, String>> it = data.entrySet().iterator();
 		while (it.hasNext()) {

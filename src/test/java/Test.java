@@ -7,6 +7,8 @@ import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by yezhangyuan on 2018-04-23.
@@ -37,10 +39,20 @@ public class Test {
 //		URLEncoder encoder = new URLEncoder();
 
 
-		String r1 = "5btest1a2b3c4d5f7f738xmdifoo985674195b97f28c761f";
-		String ori = "abcABDddd123456";
-		String vlu = encodeKey(ori,r1);
-		System.out.println(vlu);
+//		String r1 = "5btest1a2b3c4d5f7f738xmdifoo985674195b97f28c761f";
+//		String ori = "abcABDddd123456";
+//		String vlu = encodeKey(ori,r1);
+//		System.out.println(vlu);
+
+
+
+		Date date = new Date();
+		SimpleDateFormat df = new SimpleDateFormat("yyyymmddhhmmss");
+		try {
+			System.out.println(df.format(new Date()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 
 	}

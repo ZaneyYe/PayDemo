@@ -1,5 +1,11 @@
+import org.apache.commons.lang3.StringUtils;
+import sdkUtil.SDKConstants;
+
 import java.security.MessageDigest;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
+import java.util.TreeMap;
 
 /**
  * Created by yezhangyuan on 2018-05-14.
@@ -46,7 +52,38 @@ public class Utils
 				sb.append(temp.substring(start, start + 1));
 			}
 			return sb.toString();
+	}
+
+
+	/**
+	 * 将Map中的数据转换成key1=value1&key2=value2的形式 不包含签名域signature
+	 *
+	 * @param data
+	 *            待拼接的Map数据
+	 * @return 拼接好后的字符串
+	 */
+	public static String coverMap2String(Map<String, String> data) {
+		TreeMap<String, String> tree = new TreeMap<String, String>();
+		Iterator<Map.Entry<String, String>> it = data.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry<String, String> en = it.next();
+			if (SDKConstants.param_signature.equals(en.getKey().trim()) || StringUtils.isBlank(en.getValue())){
+				continue;
+			}
+			tree.put(en.getKey(), en.getValue());
 		}
+		it = tree.entrySet().iterator();
+		StringBuffer sf = new StringBuffer();
+		while (it.hasNext()) {
+			Map.Entry<String, String> en = it.next();
+			sf.append(en.getKey() + SDKConstants.EQUAL + en.getValue()
+					+ SDKConstants.AMPERSAND);
+		}
+		return sf.substring(0, sf.length() - 1);
+	}
+
+
+
 
 	public static void main(String[] args){
 ////		String str2 = "appId=2ad1a3275c4c413f8d603e4be7886785&frontToken=e3bUKdGhQZaPpy1mYHzpSw==&nonceStr=MjZRp8jFOL5E72Oj&timestamp=1532328524&url=https://coupon.yuelai.club";
@@ -55,12 +92,14 @@ public class Utils
 ////		String ss = "appId=6f5e05407c7d4ad88e28b3cf32352207&frontToken=Wo/4vYjITxmh35BzWdGg4w==&nonceStr=fQ2IJsnJsGA4vpwn&timestamp=1535446600&url=https://upw-dev.axinfu.com/fee/feeInfoSure";
 //////		String s3 = "appId=a5949221470c4059b9b0b45a90c81527&frontToken=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg&nonceStr=Wm3WZYTPz0wzccnW&"+
 //////				"timestamp=1414587457&url=http://mobile.xxx.com?params=value";
-		String ss = "appId=7c23a9cc21a043028c6cc945dcf01492&frontToken=J/T6IjYyQli3lkYUxR+6IA==&nonceStr=H45DIbcVLmDSv4oT&timestamp=1550510149&url=https://unionpay.ylzcf.com/finance/singNetCreditCeShi?code=mxQwTLs/SheXm8YttdFE3g==&state=up";
+		String ss = "appId=97f61a4806e948fa81322c0681cd63d6&nonceStr=cbS4zbu1RqD1kNCg&secret=46119c9674354f218479721eed504b1e&timestamp=1566786821";
 		System.out.println(sha256(ss.getBytes()));
-//		System.out.println(sha256("5258".getBytes()));
-		System.out.println(System.currentTimeMillis()/1000);
-		String timestamp = Long.toString(System.currentTimeMillis()).substring(0,10);
-		System.out.println(timestamp);
+////		System.out.println(sha256("5258".getBytes()));
+//		System.out.println(System.currentTimeMillis()/1000);
+//		String timestamp = Long.toString(System.currentTimeMillis()).substring(0,10);
+//		System.out.println(timestamp);
+
+//		System.out.println(Base64Utils.decodeFromString("v4J9hr5xKf7paZeUGuxv9PF2utPyPodc/3ZBhPgIB78l9DWLzPqUWQ="));
 
 //
 //////		System.out.println(sha256(s3.getBytes()));

@@ -17,20 +17,24 @@ import java.io.IOException;
 public class JsonPost2 {
 
 	public static void main(String[] args) throws IOException {
-		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/oauth.getCardList");
+//		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/user.mobile");
+		HttpPost httpPost = new HttpPost("http://202.101.25.188:10533/open/access/1.0/user.auth");
 		CloseableHttpClient client = HttpClients.createDefault();
 		String respContent = null;
 
 		//json方式
 		JSONObject jsonParam = new JSONObject();
-		jsonParam.put("appId", "d43714e0246a435e87037f80495d2c6d");
-		jsonParam.put("openId", "2X/rjxxiADyrDxLV4jm43trfwlvlG6gvsFKWdLWqsvpqUxB90dsWjSExndldBabC");
+//		jsonParam.put("appId", "d43714e0246a435e87037f80495d2c6d");
+//		jsonParam.put("appId", "a5949221470c4059b9b0b45a90c81527");
+		jsonParam.put("appId", "0c99b92ae08a4367ac6251494ba398c5");
+
+		jsonParam.put("openId", "Hii4fc8Ymn2NLrfvpopFhLI5xCsPjWIYrnDjCH80HZn/GAE1nigt8xn1MamWPBtz");
 //		String str = Utils.createNonceStr();
-		jsonParam.put("accessToken", "C2X0OuQbQJeFC/H2QrIPXrRo2bIRo6C6Sm2VNekNdAyo8kjLcipv71BwvwO05JKAovVL6iGO1O/paEdn/XJMYN48qdlCzjMVjT4sbvW61V0=");
-		jsonParam.put("backendToken","T5jkuW4DRPyR6wjYccKvKQ==");
-		jsonParam.put("cardTp","00");
-		jsonParam.put("needPay","1");
-		jsonParam.put("needSameName","0");
+		jsonParam.put("accessToken", "wKuk7BM3l07S84jmwvaMcvzPogJL7nT+63mPpmtbqjGFQNONCZPmyRKuu3QnKEDfhb29WDsI1PcJPrQERVwKt8Y/nRzcf9gj");
+		jsonParam.put("backendToken","thUQqKIpT5qe1fM0PI47dg==");
+//		jsonParam.put("cardTp","00");
+//		jsonParam.put("needPay","1");
+//		jsonParam.put("needSameName","1");
 
 //		String date = String.valueOf(System.currentTimeMillis()/1000);
 //		jsonParam.put("timestamp",date);

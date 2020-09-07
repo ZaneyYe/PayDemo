@@ -40,12 +40,6 @@ public class ShareUserUtil {
 		return c.doFinal(input);
 	}
 
-	public static void main(String[] args) throws Exception {
-		String desKey = get3Des();
-		System.out.println(desKey);
-		System.out.println(getEncryptedValue("wade",desKey));
-		System.out.println(getDecryptedValue("zEQMDyxcDWU=","d5191604388585156e67cbb3807a4c58d519160438858515"));
-	}
 
 	/**
 	 * 3ds加密
@@ -70,8 +64,9 @@ public class ShareUserUtil {
 		if (null == value || "".equals(value)) {
 			return "";
 		}
-//         byte[] valueByte = BytesUtil.hexToBytes(value);
+		//返回结果base64解码
 		byte[] valueByte = Base64Utils.decodeFromString(value);
+		//3Des解密
 		byte[] sl = decrypt3DES(valueByte, ByteUtils.fromHexString(key));
 		String result = new String(sl);
 		return result;
@@ -167,7 +162,7 @@ public class ShareUserUtil {
 			kgen.init(112, random);
 			SecretKey secretKey = kgen.generateKey();
 			byte[] key = new byte[24];
-			System.arraycopy(secretKey.getEncoded(), 0, key, 0, 24);
+			System.arraycopy(secretKey.getEncoded(), 0, key, 0,24);
 			return key;
 		} catch (NoSuchAlgorithmException e) {
 			throw new RuntimeException(e);
@@ -232,6 +227,26 @@ public class ShareUserUtil {
 			bf.append(sl.charAt(new Random().nextInt(sl.length())));
 		}
 		return bf.toString();
+	}
+
+	public static void main(String[] args) throws Exception {
+//		String prikey = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBANUMjIW5jSDWjKwGg11Km4+ntKLQHhRFTMK7qGy0xbM4TkxeT9zid8+3oHfjMgJF8iI3Bf8Vc0WyGqCnvMGWm+ZkQz+/EI3PXFPkXw6nGOybfrvIncSUrMUUfk7QL5fYc4joiUgiBzaaEmSlc4Bm8bwB0aCbGXZkKRJXzc67YVe5AgMBAAECgYBpjQcNtYkjDMiy7aMllDIP8QGAbGWKm27VR43BFaqhCTNZiJw+jgDX61zYKLp8/9RfeS1CXIk4rW2dzJyquIhRrAQr+PDNJC0RxF9LwHFqUmwoNp/z8FjWigsrKU7u30JE9FvYg6u1Q2nVfOYiuNOM030lItK3HlWds+n7ccbQkQJBAPWv28PL50jbCVoBruWgUnAjN2b815CUs0x8Qy6sK9xeT4h5c/rtwrYPOsNu5tXvxOh9uXC/JDHKnq8NjCD1fC0CQQDd/fb0XPktnz6fpPS39g2vhUisl7RZHyKDVDMg0p6f/dJH+/wNRKr4bqs0pFuCHqTI+D/RgRLWQ9VoBbAQmWU9AkBkV1R8HPTy7nJdTj6uDdJddiSUbUNlCzZHUKDnmO247NOyu1fA7gYN8R5g3xRr36ceBOsNvyL7KvOwLupCM8BpAkEAmojOvzFxrNasS4oTaXR59nO8MZmxzFCmP/H/XZwBHLMfDUlXHw1sT2ELAaxgn2YhpF1cX8WQjWPPTYiYFhYSqQJAfErvo/GyefwXvkvWHNTCfuEhEqwRgp9O0PDILdsLcSUsViJ1Q33dIg5CnVCGjeOIo3Ogv1RoyD8cqltr1uQCqg==";
+//		String str = "appId=jsnsilwcef&cardNo=123456789&certType=00&certifId=140103700322331&nonceStr=xDnIu8hfqGIFhtm4&realNm=刘鸿&registerMobile=13711111111&reserveMobile=13711111111&timestamp=1562235015&userId=WY35100101";
+//        String signValue = sign(str,prikey);
+//        System.out.println(signValue);
+//		String pubKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDVDIyFuY0g1oysBoNdSpuPp7Si0B4URUzCu6hstMWzOE5MXk/c4nfPt6B34zICRfIiNwX/FXNFshqgp7zBlpvmZEM/vxCNz1xT5F8Opxjsm367yJ3ElKzFFH5O0C+X2HOI6IlIIgc2mhJkpXOAZvG8AdGgmxl2ZCkSV83Ou2FXuQIDAQAB";
+//        System.out.println(signValidate(str,signValue,pubKey));
+
+		System.out.println(get3Des());
+
+//		String v = "YWlRKdx9Vi2Uls7pX/ePGQ==";
+//		String res = getDecryptedValue(v,"23492c42e6027d85fc807e61ed96bca0a2122e95e3860fc4");
+//		System.out.println(res);
+//
+//		System.out.println(getEncryptedValue("6226220311257306","23492c42e6027d85fc807e61ed96bca0a2122e95e3860fc4").getBytes().length);
+//
+//		byte[] keys = hexToBytes("26613b3119c2087a1c8c2302d3ead37326613b3119c2087a");
+//		System.out.println(keys.length);
 	}
 
 }

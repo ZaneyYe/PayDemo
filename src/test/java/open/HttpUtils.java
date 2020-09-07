@@ -1,47 +1,39 @@
+package open;
+
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.codehaus.jackson.map.ObjectMapper;
 import sdkUtil.SDKConstants;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
- * Created by yezhangyuan on 2018-09-27.
+ * Created by yezhangyuan on 2019-08-06.
  *
  * @author yezhangyuan
  */
-public class MyHttpClient {
-
-	private static ObjectMapper objectMapper = new ObjectMapper();
-
-	private String url;
-
-	public MyHttpClient() {
-	}
-
-	public MyHttpClient(String url){
-		this.url = url;
-	}
+public class HttpUtils {
 
 	/**
-	 * post请求返回信息
-	 * @param param
-	 * @return
+	 * post请求
 	 */
-	public String excuteResult(String param){
+	public static String sendPostUrl(String url, Map<String, String> paramData){
+		String param = coverMap2String(paramData);
 		// 接收参数json列表
 		StringEntity entity = new StringEntity(param,"utf-8");//解决中文乱码问题
 		entity.setContentEncoding("UTF-8");
 		entity.setContentType("application/json");
-
 		String resData;
 		CloseableHttpClient httpclient = null;
 		try {
@@ -56,9 +48,9 @@ public class MyHttpClient {
 			resData = "";
 			CloseableHttpResponse response = null;
 			try {
-				  response = httpclient.execute(post);
-	//			 请求结束，返回结果
-				  resData = EntityUtils.toString(response.getEntity());
+				response = httpclient.execute(post);
+				//			 请求结束，返回结果
+				resData = EntityUtils.toString(response.getEntity());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}finally {
@@ -79,17 +71,42 @@ public class MyHttpClient {
 	}
 
 	/**
-	 * 发送請求
-	 * @param map
+	 * get请求
+	 * @param url
+	 * @param paramData
 	 * @return
-	 * @throws IOException
 	 */
-	public String sendPost(Map<String,String> map) throws IOException {
-		String params = objectMapper.writeValueAsString(map);
-		System.out.println("请求参数：:" + params);
-		String res = excuteResult(params);
-		return res;
+	public static String sendGetUrl(String url, Map<String, String> paramData) throws URISyntaxException {
+		URIBuilder builder = new URIBuilder(url);
+		Set<String> set = paramData.keySet();
+		for(String key: set){
+			builder.setParameter(key, paramData.get(key));
+		}
+		HttpGet get = new HttpGet(builder.build());
+		RequestConfig requestConfig = RequestConfig.custom()
+				.setConnectTimeout(50000)
+				.setSocketTimeout(50000).build();
+		get.setConfig(requestConfig);
+		CloseableHttpClient httpClient = null;
+		String resData = null;
+		try {
+			httpClient = HttpClients.createDefault();
+			CloseableHttpResponse response = httpClient.execute(get);
+			resData = EntityUtils.toString(response.getEntity());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				httpClient.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return resData;
 	}
+
+
+
 
 	/**
 	 * 将Map中的数据转换成key1=value1&key2=value2的形式 不包含签名域signature
@@ -116,6 +133,7 @@ public class MyHttpClient {
 					+ SDKConstants.AMPERSAND);
 		}
 		return sf.substring(0, sf.length() - 1);
+
 	}
 
 

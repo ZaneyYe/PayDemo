@@ -1,3 +1,5 @@
+package open;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -25,13 +27,13 @@ public class CardGetter {
 		String respContent = null;
 		JSONObject jsonParam = new JSONObject();
 		jsonParam.put("appId", "d43714e0246a435e87037f80495d2c6d");
-		jsonParam.put("openId", "2X/rjxxiADyrDxLV4jm43trfwlvlG6gvsFKWdLWqsvpqUxB90dsWjSExndldBabC");
-		jsonParam.put("backendToken", "dvdN9mCoQ4aEkX2hDlhx9Q==");
+		jsonParam.put("openId", "i3qAYpusQw4YXx4dohs4CJeTJAEUS/kU5EC5PyRNjLSHUJ/hSDwsCQJ6aDxFL/pF");
+		jsonParam.put("backendToken", "6VSTqEaaT9qCYxdMuF36gA==");
 		jsonParam.put("accessToken",
-				"RoYGwYe60HfZtl/MuS+7nz5pCY1VaYMRhV1HMVi5FGcaSH8VbD36PbHaXL3cRH45a3w9KXtumIQJ/J1Q6bxadgRobyDJh7SC");
+				"FYUE6EMKYEOm3v18FSzZKGijdjytWQcvExHhHOMM0Jjbc3UtTPM6QLzhe5/EaZJGVHYAkUQe+RCf51kHHRm/sIdpaERgTF2f");
 		jsonParam.put("cardTp", "00");
-		jsonParam.put("needSameName", "0");
-		jsonParam.put("needPay", "0");
+		jsonParam.put("needSameName", "1");
+		jsonParam.put("needPay", "1");
 		// jsonParam.put("content", "hello！");
 		// jsonParam.put("url", "http://172.20.38.241");
 		System.out.println(jsonParam.toString());

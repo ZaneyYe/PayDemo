@@ -585,7 +585,9 @@ public class ImgTest {
 
 		Image image = ImgUtils.getImage(Base64Utils.decodeFromString(base64Img));
 
-		ImageIO.write((RenderedImage) image,"png",new File("E://2.jpg"));
+		ImageIO.write((RenderedImage) image,"jpg",new File("E://2.jpg"));
 
 	}
+
+
 }

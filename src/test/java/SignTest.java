@@ -20,13 +20,13 @@ public class SignTest {
 		String encoding = "UTF-8";
 		Map<String, String> data = new HashMap<>();
 
-		data.put("appId", "69829a1e84df4da3bdcebd40530afac7");
-		data.put("nonceStr", "23449726802c4461aa68db82aa110d57");
+		data.put("appId", "7ff6d728928c4d9f8f7e5a8ccd5e0d81");
+		data.put("nonceStr", "0FvhteCdmJv3xfV6");
 		long time = System.currentTimeMillis();
 		System.out.println(time);
-		data.put("timestamp",1545362074+"");
-		data.put("url","https://hljslh5.jingmon.com/");
-		data.put("frontToken","ousk7Zm/QnixSK4JeTi1vA==");
+		data.put("timestamp",1559292191+"");
+//		data.put("url","https://hljslh5.jingmon.com/");
+//		data.put("frontToken","ousk7Zm/QnixSK4JeTi1vA==");
 		String waitForSign = coverMap2String(data);
 		LogUtil.writeLog("待签名请求报文串:[" + waitForSign + "]");
 

@@ -14,24 +14,22 @@ import java.io.IOException;
  *
  * @author yezhangyuan
  */
-public class OpenIdTest {
+public class MsgPushTest {
 
 	public static void main(String[] args) throws IOException {
-		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/token");
-//		HttpPost httpPost = new HttpPost("http://202.101.25.188:10533/open/access/1.0/token");
-
+		HttpPost httpPost = new HttpPost("https://open.95516.com/open/access/1.0/new.msg.push");
 		CloseableHttpClient client = HttpClients.createDefault();
 		String respContent = null;
 
 		//json方式
 		JSONObject jsonParam = new JSONObject();
-		jsonParam.put("appId", "d43714e0246a435e87037f80495d2c6d");
-//		jsonParam.put("appId","a5949221470c4059b9b0b45a90c81527");
-//		jsonParam.put("appId", "0c99b92ae08a4367ac6251494ba398c5");
+//		jsonParam.put("appId", "d43714e0246a435e87037f80495d2c6d");
+		jsonParam.put("appId","a5949221470c4059b9b0b45a90c81527");
 
-		jsonParam.put("backendToken", "FjI8kLS0QKWBN3daU/gLew==");
-		jsonParam.put("code", "nQvLrSgoTyS50MKBMyNlSQ==");
-		jsonParam.put("grantType", "authorization_code");
+		jsonParam.put("openId", "XPu9vLl1UfFbsx3S/WWEJ7TnralSBmuNLGcMoBNDDpAQOhzHBOMIPjKh2/HAmGaN");
+		jsonParam.put("backendToken", "UQqUvyU9QmCWSRVXNzq0Lw==");
+		jsonParam.put("content", "完美");
+		jsonParam.put("url", "http://47.98.179.66:8088/qianyue");
 
 		System.out.println(jsonParam.toString());
 
@@ -46,7 +44,6 @@ public class OpenIdTest {
 			respContent = EntityUtils.toString(he, "UTF-8");
 		}
 		System.out.println(respContent);
-
 	}
 
 }
